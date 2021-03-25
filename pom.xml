@@ -12,6 +12,7 @@
       <module>pigeon-spi</module>
       <module>pigeon-demo</module>
       <module>pigeon-registry</module>
+        <module>pigeon-route</module>
     </modules>
 
   <name>pigeon</name>
@@ -56,6 +57,7 @@
     <kryo.version>4.0.0</kryo.version>
     <yaml.version>1.23</yaml.version>
     <HikariCP.version>3.2.0</HikariCP.version>
+    <nacos.version>1.4.1</nacos.version>
   </properties>
 
   <dependencyManagement>
@@ -74,6 +76,11 @@
       <dependency>
         <groupId>com.moqifei.rpc</groupId>
         <artifactId>pigeon-registry</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.moqifei.rpc</groupId>
+        <artifactId>pigeon-route</artifactId>
         <version>${project.version}</version>
       </dependency>
 
@@ -435,6 +442,12 @@
         <artifactId>lombok</artifactId>
         <version>${lombok.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.alibaba.nacos</groupId>
+        <artifactId>nacos-client</artifactId>
+        <version>${nacos.version}</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 

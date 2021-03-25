@@ -8,19 +8,23 @@ import com.moqifei.rpc.spi.load.ExtensionLoaderFactory;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
+import java.util.concurrent.TimeUnit;
 
 public class HelloWorldClient {
     public static void main(String[] args) throws Exception {
         SimpleRpcClient rpcClient = new SimpleRpcClient();
 
         //通过SPI获取服务发现实例，zkRegistry
-        ServiceRegistry serviceRegistry = ExtensionLoaderFactory.load(ServiceRegistry.class, "zkRegistry");
+        ServiceRegistry serviceRegistry = ExtensionLoaderFactory.load(ServiceRegistry.class, "nacosRegistry");
 
         Map<String, String> param = new HashMap<>();
-        param.put(ZkServiceRegistry.ZK_ADDRESS, "ip:8090");
-        param.put(ZkServiceRegistry.ZK_DIGEST, "");
-        param.put(ZkServiceRegistry.ENV, "test");
+//        param.put(ZkServiceRegistry.ZK_ADDRESS, "ip:8090");
+//        param.put(ZkServiceRegistry.ZK_DIGEST, "");
+//        param.put(ZkServiceRegistry.ENV, "test");
         //初始化服务链接，目前先写死 TODO 从配置文件读取
+
+        param.put("ip", "127.0.0.1");
+        param.put("port", "8848");
         serviceRegistry.init(param);
 
         TreeSet<String> addressSet = serviceRegistry.discovery(HelloWorldService.class.getSimpleName());
@@ -30,5 +34,7 @@ public class HelloWorldClient {
         HelloWorldService helloWorldService = rpcClient.call(HelloWorldService.class, address[0], Integer.valueOf(address[1]));
         String result = helloWorldService.sayHello("Hello World!");
         System.out.println(result);
+
+        TimeUnit.SECONDS.sleep(120);
     }
 }

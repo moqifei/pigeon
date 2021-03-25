@@ -1,2 +1,3 @@
 com.moqifei.rpc.registry.impl.LocalServiceRegistry
 com.moqifei.rpc.registry.impl.ZkServiceRegistry
+com.moqifei.rpc.registry.impl.NacosServiceRegistry

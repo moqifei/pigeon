@@ -1,0 +1,5 @@
+com.moqifei.rpc.route.impl.RandomRouteStrategy
+com.moqifei.rpc.route.impl.RoundRouteStrategy
+com.moqifei.rpc.route.impl.ConsistentHashRouteStrategy
+com.moqifei.rpc.route.impl.LruRouteStrategy
+com.moqifei.rpc.route.impl.LfuRouteStrategy

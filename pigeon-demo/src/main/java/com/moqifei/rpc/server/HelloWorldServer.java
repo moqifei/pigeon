@@ -15,12 +15,14 @@ public class HelloWorldServer {
         SimpleRpcServer rpcServer = new SimpleRpcServer();
 
         //通过SPI获取服务发现实例，zkRegistry
-        ServiceRegistry serviceRegistry = ExtensionLoaderFactory.load(ServiceRegistry.class, "zkRegistry");
+        ServiceRegistry serviceRegistry = ExtensionLoaderFactory.load(ServiceRegistry.class, "nacosRegistry");
 
         Map<String, String> param = new HashMap<>();
-        param.put(ZkServiceRegistry.ZK_ADDRESS, "ip:8090");
-        param.put(ZkServiceRegistry.ZK_DIGEST, "");
-        param.put(ZkServiceRegistry.ENV, "test");
+//        param.put(ZkServiceRegistry.ZK_ADDRESS, "ip:8090");
+//        param.put(ZkServiceRegistry.ZK_DIGEST, "");
+//        param.put(ZkServiceRegistry.ENV, "test");
+        param.put("ip", "127.0.0.1");
+        param.put("port", "8848");
         //初始化服务链接，目前先写死 TODO 从配置文件读取
         serviceRegistry.init(param);
 
