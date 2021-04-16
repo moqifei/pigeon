@@ -12,7 +12,7 @@ import java.util.TreeSet;
 /**
  * 本地服务注册
  */
-@PigeonSPI("localRegistry")
+@PigeonSPI("local")
 public class LocalServiceRegistry implements ServiceRegistry {
 
     /**

@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author xuxueli 2018-10-17
  */
-@PigeonSPI("zkRegistry")
+@PigeonSPI("zk")
 public class ZkServiceRegistry implements ServiceRegistry {
     private static Logger logger = LoggerFactory.getLogger(ZkServiceRegistry.class);
 

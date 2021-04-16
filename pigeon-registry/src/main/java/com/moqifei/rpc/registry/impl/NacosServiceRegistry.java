@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
  * @author moqifei 20210318
  */
 
-@PigeonSPI("nacosRegistry")
+@PigeonSPI("nacos")
 public class NacosServiceRegistry implements ServiceRegistry {
 
     private static Logger logger = LoggerFactory.getLogger(NacosServiceRegistry.class);

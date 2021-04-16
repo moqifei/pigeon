@@ -13,6 +13,10 @@
       <module>pigeon-demo</module>
       <module>pigeon-registry</module>
         <module>pigeon-route</module>
+        <module>pigeon-net</module>
+        <module>pigeon-serialize</module>
+        <module>pigeon-exchange</module>
+        <module>pigeon-core</module>
     </modules>
 
   <name>pigeon</name>
@@ -58,6 +62,8 @@
     <yaml.version>1.23</yaml.version>
     <HikariCP.version>3.2.0</HikariCP.version>
     <nacos.version>1.4.1</nacos.version>
+    <netty.version>4.1.63.Final</netty.version>
+    <hessian.version>4.0.60</hessian.version>
   </properties>
 
   <dependencyManagement>
@@ -82,6 +88,31 @@
         <groupId>com.moqifei.rpc</groupId>
         <artifactId>pigeon-route</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.moqifei.rpc</groupId>
+        <artifactId>pigeon-net</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.moqifei.rpc</groupId>
+        <artifactId>pigeon-serialize</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <!-- netty -->
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-all</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+
+
+      <!-- hessian -->
+      <dependency>
+        <groupId>com.caucho</groupId>
+        <artifactId>hessian</artifactId>
+        <version>${hessian.version}</version>
       </dependency>
 
       <!-- springframework -->
@@ -447,6 +478,20 @@
         <artifactId>nacos-client</artifactId>
         <version>${nacos.version}</version>
       </dependency>
+
+      <!-- https://mvnrepository.com/artifact/com.alibaba/dubbo -->
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>dubbo</artifactId>
+        <version>2.6.8</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
 
     </dependencies>
   </dependencyManagement>
